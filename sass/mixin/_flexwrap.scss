@@ -1,0 +1,45 @@
+@mixin _fwrap( $type, $pd:#{$pd-md} ) {
+    display: flex;
+    flex-wrap: wrap;
+
+    // タブレット以下表示共通
+    @include mq('md') {
+        flex-direction: column;
+        align-items: center;
+
+        > * {
+            margin-top: calc(#{$pd} / 2);
+            width: $mw-base-slct * .8;
+            max-width: 100%;
+        }
+    }
+
+    > *:not(._notfwrap) {
+        // PC横3アイテム
+        @if( $type == 'pc3' ) {
+            @include mq('pc') {
+                flex:0 0 calc(33.33% - #{$pd} * 2 / 3);
+                margin-top: $pd;
+                margin-right: $pd;
+                
+                &:nth-of-type(3n) {
+                    margin-right: 0;
+                }
+            }
+            @content;
+        }
+
+        // PC横2アイテム
+        @else if( $type == 'pc2' ) {
+            @include mq('pc') {
+                flex: 0 0 calc(50% - #{$pd} / 2);
+                margin-top: $pd;
+
+                &:nth-of-type(2n+1) {
+                    margin-right: $pd;
+                } 
+            }
+            @content;
+        }
+    }    
+}    

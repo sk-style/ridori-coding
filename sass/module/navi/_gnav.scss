@@ -1,0 +1,28 @@
+.gnav {
+    @include mq('pc') {
+        text-align: center;    
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 27%;
+        height: 60%;
+        z-index: map-get($layer, 'nav');
+    
+        .nav-item {
+            a {
+                color: $color-white;
+    
+                &::after {
+                    background-color: $color-ac;
+                }
+            }
+
+            &._btn {
+                margin-top: 20px;         
+                @include _btn('gold');
+            }
+        }
+    }
+}
+
+

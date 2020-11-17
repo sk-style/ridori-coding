@@ -1,0 +1,123 @@
+.about {
+    @include mq('md') {
+        margin-top: $pd-md;
+        padding-top: $pd-md;       
+    }
+    @include mq('pc') {
+        margin-top: $pd-pc;
+        padding-top: $pd-pc;       
+    }
+
+    >.inner {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        z-index: map-get($layer, 'default');
+        @include mq('md') {
+            max-width: 600px;
+            flex-wrap: wrap;         
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            background: url(../img/circle1.png) no-repeat;
+            background-size: contain;
+            z-index: map-get($layer, 'bg');
+            @include mq('md') {
+                top: - $pd-md * 2;
+                right: -50px;
+                width: 250px;
+                height: 250px;
+    
+            }
+            @include mq('pc') {
+                top: - $pd-pc * 2;
+                right: -100px;
+                width: 400px;
+                height: 400px;
+            }
+        }
+    }
+
+    .sec-tit {
+        font-family: $ff-tit-v;
+        writing-mode: vertical-rl;
+        margin-top: 1.2em;
+        text-indent: -1.4em;
+        @include mq('md') {          
+            flex: 0 0 120px;
+            margin-bottom: .6em;
+        }
+        @include mq('pc') {
+            font-size: 70px;
+            letter-spacing: 0.04em;
+            flex: 0 0 240px;
+            margin-bottom: 1.8em;
+        }
+
+        > small {
+            display: block;
+            font-size: .8em;
+            letter-spacing: .02em;
+        }
+    }
+
+    &-txt {
+        font-size: 15px;
+        @include mq('md') {  
+            flex: 0 1 calc(100% - 120px);
+            line-height: 1.8;
+            margin-top: 1.5em;
+        }
+        @include mq('pc') {
+            flex-grow: 1;
+            line-height: 2.25;
+            margin-top: 100px;
+            writing-mode: vertical-rl;
+            font-size: $fz-base;
+        }
+
+        > p:nth-child(n+2) {
+            @include mq('md') {
+                margin-top: 1em;
+            }
+            @include mq('pc') {
+                margin-right: 1.5em;               
+            }
+        }
+    }
+
+    &-img {
+        &._main {
+            @include mq('md') {
+                flex: 0 0 150%;
+                position: relative;
+                left: 25%;
+            }
+            
+            @include mq('pc') {
+                position: absolute;
+                top: -30px;
+                left: -480px;
+                z-index: map-get($layer, 'default');
+
+                img {
+                    width: 960px;
+                    height: 880px;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        &._bottom {
+            @include mq('pc') {
+                background: url(../img/top/about_img_bottom.jpg) center top / cover;
+                background-attachment: fixed;
+                border: none;
+                padding-top: 37%;
+                min-height: 300px;
+            }
+        }
+    }
+}

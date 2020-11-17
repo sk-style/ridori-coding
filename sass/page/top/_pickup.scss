@@ -1,0 +1,53 @@
+.pickup {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    z-index: map-get($layer, 'default');
+
+    > a {
+        border-bottom: 1px solid $color-white;
+        display: flex;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: translateX(10px);
+        }
+
+        > h3 {
+            @include mq('sm') {
+                display: none;     
+            }
+        }
+    }
+    
+    @include mq('md') {
+        bottom: 20px;
+        a {
+            color: $color-white;
+            padding: 8px 15px;
+            font-size: 13px;
+        }
+    }
+    @include mq('pc') {
+        bottom: 30px;
+        a {
+            background-color: #fff;
+            padding: 10px 30px;
+            font-size: 14px;
+        }
+    }
+
+    &-content {
+        display: flex;
+        > h4 {
+            padding-left: .8em;
+        }
+        @include mq('md') {
+            padding-left: 10px;
+        }
+        @include mq('pc') {
+            padding-left: 30px;
+        }
+    }
+}

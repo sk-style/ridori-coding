@@ -1,0 +1,115 @@
+.nav {
+    &-tit {
+        letter-spacing: 0;
+        @include mq('md') {
+            font-size: 28px;
+        }
+        @include mq('pc') {
+            font-size: 30px;
+            writing-mode: vertical-rl;
+            margin: 0 auto;    
+        }
+
+        a {
+            color: $color-main;
+        }
+
+        span {
+            font-family: $ff-tit-h;
+        }
+    }
+
+    &-list {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    &-item {
+        > a {
+            padding: .5em;
+            position: relative;
+        }
+
+        &:not(._btn) > a{
+            &::after {
+                position: absolute;
+                bottom: 50%;
+                left: 50%;
+                transform: translateX(-50%);
+                content: '';
+                background-color: $color-main;
+                width: 0;
+                height: 1px;
+                transition: all .3s;
+            }
+
+            &:hover {
+                &::after {
+                    width: 110%;
+                }
+            }
+        }
+    }
+   
+    &-def {
+        @include mq('md') {
+            margin-top: 25px;
+        }
+        @include mq('pc') {
+            margin-top: 35px;
+        }
+    }
+    
+    &-dtit {
+        display: inline-block;
+        margin: 0 6px;
+        text-align: center;
+        vertical-align: bottom;
+        border-top: 1px solid;
+        border-bottom: 1px solid;                    
+        @include mq('md') {
+            font-size: 15px;
+            letter-spacing: .1em;
+            margin: 0 0 10px 0;
+            line-height: 38px;
+            padding: 0 5px;
+        }
+        @include mq('pc') {
+            letter-spacing: 0;
+            line-height: 50px;
+        }
+    }
+
+    &-data {
+        @include mq('pc') {
+            display: inline-block;
+        }
+        
+        > a {
+            display: block;
+            font-weight: 600;
+            transition: opacity .4s;
+            @include mq('md') {
+                color: $color-main;
+                font-size: 27px;
+                line-height: 1;
+            }
+            @include mq('pc') {
+                color: $color-white;
+                font-size: 28px;
+                letter-spacing: .15em;
+                line-height: 1.1;
+
+            }
+
+            &:hover {
+                opacity: .7;
+            }
+        }
+
+        > span {
+            font-size: 13.5px;
+            letter-spacing: .15em;    
+        }
+    }
+}

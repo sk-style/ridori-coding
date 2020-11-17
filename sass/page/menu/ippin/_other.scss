@@ -1,0 +1,245 @@
+.other {
+    $this: &;
+    overflow: visible;
+    @include mq('md') {
+        margin-top: $pd-md;
+    }
+    @include mq('pc') {
+        display: flex;
+        align-items: center;
+        margin-top: 80px;
+    }
+
+    .sec-tit {
+        @include mq('md') {
+            font-family: $ff-tit-h;
+            font-size: 28px;
+            line-height: 1.1;
+            text-align: center;
+        }
+        @include mq('pc') {
+            font-family: $ff-tit-v;
+            writing-mode: vertical-rl;
+            font-size: 50px;
+            margin-bottom: .2em;
+            white-space: nowrap;
+
+            > span._pc {
+                color: $color-txt;
+                font-size: 1em;
+            }
+        }
+    }
+
+    &-list {
+        @include mq('md') {
+            margin-top: 25px;            
+        }
+        @include mq('pc') {
+            display: flex;
+            flex-direction: column;          
+            background: url(../img/circle0.png) center bottom /60% no-repeat;
+        }
+    }
+
+    &-img {
+        @include mq('md') {
+            max-width: $mw-base-slct + 70px;
+            margin: 0 auto;
+            padding: 0 30px;
+
+            img {
+                max-height: 250px;
+                object-fit: cover;
+            }
+        }
+        @include mq('pc') {
+            flex-basis: 60%;
+            @include _ratio(57.5%);
+        }
+    }
+
+    &-wrap {
+        @include mq('md') {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            writing-mode: vertical-rl;
+            height: 220px;
+            color: $color-white;
+            text-shadow: $ts-black;
+        }
+
+        >.price {
+            @include mq('md') {
+                text-align: right;
+            }
+            @include mq('pc') {
+                display: inline-block;
+                margin-top: -5px;
+            }
+        }
+    }
+
+    .sub-tit {
+        span {
+            color: $color-white;
+            text-shadow: $ts-black;
+            font-size: 1em;
+        }
+
+        small {
+            letter-spacing: .15em;
+        }
+
+        @include mq('md') {
+            font-family: $ff-tit-v;
+            color: $color-white;
+            text-align: right;
+            text-shadow: $ts-black;
+
+            small {
+                text-align: left;
+            }
+        }
+        @include mq('pc') {
+            font-family: $ff-tit-h;
+            font-size: 48px;
+            display: inline-block;
+            padding: 0 .2em .3em .7em;
+            position: relative;
+
+            &:after {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 115%;
+                height: 1px;
+                content: '';
+                background-color: $color-dark;
+            }
+        }
+    }
+
+    &-txt {
+        @include mq('md') {
+            display: none;
+        }
+    }
+
+    &-list {
+        @include mq('pc') {
+            margin-left: 3%;           
+        }
+    }
+
+    &-item {
+        @include mq('md') {
+            position: relative;
+        }
+        @include mq('pc') {
+            display: flex;  
+        }
+
+        //1番目（焼きおにぎり）
+        &:nth-of-type(1) {
+            @include mq('pc') {
+                #{$this}-wrap {
+                    margin-left: -13em;
+                    position: relative;
+
+                    >.sub-tit {
+                        margin-top: 130px;
+                    }
+                }
+
+                #{$this}-txt {
+                    position: absolute;
+                    top: 30px;
+                    right: 10px;
+                }              
+            }
+        }
+
+        //2番目（豚もつ煮込み）
+        &:nth-of-type(2) {
+            @include mq('pc') {
+                margin-top: $pd-pc;               
+                flex-direction: row-reverse;
+
+                #{$this}-img {
+                    margin-right: 5%;
+                }
+    
+                #{$this}-wrap {
+                    margin-right: -10em;
+
+                    >.sub-tit {
+                        margin-top: 10px;
+                    }
+                }
+
+                #{$this}-pri {
+                    color: $color-white;
+                    text-shadow: $ts-black;
+                }
+            }
+        }
+    }
+
+    // swiper
+    .swiper-button-prev,
+    .swiper-button-next {
+        @include mq('pc') {
+            display: none;
+        }
+    }
+
+    @include mq('md') {
+        .swiper-slide-prev,
+        .swiper-slide-next {
+            &:not(.swiper-button-prev),
+            &:not(.swiper-button-next) {
+                opacity: 0 !important;
+            }
+        }
+    
+        .swiper-button {
+            &-prev,
+            &-next {
+                height: 30px;
+                width: 20px;
+                margin-top: 22px;
+                background-image: none;
+
+                &:after {
+                    font-family: 'Font Awesome 5 Free';
+                    color: $color-txt;
+                    font-size: 33px;
+                }
+            }
+
+            &-prev {
+                left: 5px;
+
+                &:after {
+                    content: '\f053';
+                }
+            }
+
+            &-next {
+                right: 5px;
+
+                &:after {
+                    content: '\f054';
+                }
+            }
+        }     
+    }
+
+    .swiper-pagination {
+        position: static;
+        margin-top: 10px;
+    }  
+}

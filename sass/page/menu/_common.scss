@@ -1,0 +1,61 @@
+.kushi,
+.ippin,
+.course,
+.drink {
+    &:not(.kushi) {
+        @include mq('md') {
+            margin-top: 120px;            
+        }
+        @include mq('pc') {
+            margin-top: 200px;      
+        }
+    }
+
+    >.inner {
+        @include mq('pc') {
+            max-width: 1100px;    
+            padding: 0;
+        }
+    }
+
+    p,
+    &-data {
+        @include mq('md') {
+            letter-spacing: 0.1em;          
+        }
+        @include mq('pc') {
+            line-height: 2.25;
+        }
+    }
+
+    .sub-tit {
+        @include mq('md') {
+            text-align: center;
+            font-size: 25px;        
+        }
+    }
+
+    &-img {
+        @include mq('md') {
+            max-width: $mw-base-slct + 20px;
+        }
+    }
+
+    &-item {
+        @include mq('md') {
+            margin-top: $pd-md * 1.5;
+        }
+
+        & + & {
+            @include mq('pc') {
+                margin-top: 140px;          
+            }
+        }
+    }
+
+    .price {
+        @include mq('md') {
+            text-align: center;
+        }
+    }
+}

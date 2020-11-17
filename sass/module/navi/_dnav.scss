@@ -1,0 +1,172 @@
+.dnav {
+    $this: &;
+    @include mq('md') {
+        &-menu {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: $h-header;
+            background: $color-txt;
+            z-index: map-get($layer, 'drawer') + 1;
+
+            >.inner {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 0 0 15px;
+
+                >#{$this}-icon {
+                    padding: 25px 20px;
+                }
+            }
+        }
+
+        &-btn {
+            text-align: center;
+            padding: 8px 0;
+
+            a {
+                font-size: 14px; 
+                letter-spacing: 0.05em;
+                color: $color-white;
+                width: 100%;
+                line-height: calc( #{$h-header} - 16px );
+                border-right: 1px solid $color-main-tra;
+                transition: opacity .3s;
+
+                &:hover {
+                    opacity: .8;
+                }
+            }
+            
+            &._contact {
+                flex-grow: 1;
+                text-indent: -10px;
+                background: url(../img/circle_red.png) left 20% center / contain no-repeat;
+            }
+
+            &._move {
+                flex: 0 1 30%;
+            }
+        }
+
+        &-icon {
+            box-sizing: content-box;
+            width: 25px;
+            cursor: pointer;
+            z-index: map-get($layer, 'drawer') + 1;
+
+            > div {
+                position: relative;
+
+                > span {
+                    position: absolute;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    display: block;
+                    background: #fff;
+                    transition: .35s ease-in-out;
+
+                    &:nth-of-type(1) {
+                        top: 0;
+                    }
+                    &:nth-of-type(2) {
+                        top: 7px;
+                    }
+                    &:nth-of-type(3) {
+                        top: 14px;
+                    }
+                }
+            }
+        }
+
+        &-content {
+            overflow: auto;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: auto;
+            left: auto;
+            transform: translateX(105%);
+            width: 250px;
+            max-width: 90%;
+            height: 100%;
+            background-color: $color-white-tra-l;
+            transition: transform 0.5s ease 0s;
+            z-index: map-get($layer, 'drawer');
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 2.21vw 0 calc(2.21vw + #{$h-header} ) 0;
+
+            .nav-item._btn a {
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    bottom: 50%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    content: '';
+                    background-color: $color-main;
+                    width: 0;
+                    height: 1px;
+                    transition: all .3s;
+                }
+
+                &:hover {
+                    &::after {
+                        width: 110%;
+                    }
+                }
+            }
+        }
+
+        &-close {
+            display: none;
+            position: fixed;
+            z-index: map-get($layer, 'drawer') - 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0;
+            transition: all 0.3s ease 0s;
+        }
+    }
+}
+
+// open時
+._open {
+    .dnav {
+        &-content {
+            transform: translateX(0);
+            box-shadow: 6px 0 25px rgba(0,0,0, 0.16);    
+        }
+
+        &-icon {
+            > div > span {
+                &:nth-of-type(1) {
+                    top: 7px;
+                    transform: rotate(45deg);
+                }
+                &:nth-of-type(2) {
+                    width: 0;
+                    left: 50%;
+                }
+                &:nth-of-type(3) {
+                    top: 7px;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+
+        &-close {
+            display: block;
+            opacity: 0.4;
+        }
+    }
+}

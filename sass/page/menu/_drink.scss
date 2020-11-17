@@ -1,0 +1,317 @@
+.drink {
+    $this: &;
+    @include mq('md') {
+        margin-bottom: 120px;      
+    }
+    @include mq('pc') {
+        margin-bottom: 200px;      
+    }
+
+    >.img-tit {
+        @include mq('pc') {
+            background-image: url(../img/menu/drink_tit_bg.jpg);          
+        }
+    }
+
+    &-list {
+        position: relative;
+        z-index: map-get($layer, 'default');
+        @include mq('md') {
+            margin-top: $pd-md;            
+        }
+        @include mq('pc') {
+            margin-top: 100px;           
+        }
+
+        &:before {
+            position: absolute;
+            right: 5%;
+            content: '';
+            background: url(../img/circle0.png) center / contain no-repeat;
+            transform: scale(-1, 1);
+            z-index: map-get($layer, 'bg');
+            @include mq('md') {
+                top: 20%;
+                width: 300px;
+                height: 300px;    
+            }
+            @include mq('pc') {
+                top: -1%;
+                width: 400px;
+                height: 400px;
+            }
+        }
+    }
+
+    &-img {
+        @include mq('md') {            
+            width: 100%;
+            margin: auto;
+        }
+    }
+
+    .sec-tit {
+        @include mq('md') {
+            text-align: center;
+            font-family: $ff-tit-h;
+        }
+        @include mq('pc') {
+            font-size: 85px;
+        }
+    }
+
+    &-wrap {
+        align-self: center;
+        @include mq('md') {
+            margin-top: 10px;
+        }
+    }
+
+    &-item {
+        display: grid;
+
+        & + & {
+            @include mq('pc') {
+                margin-top: $pd-pc * 2;
+            }
+        }
+
+        /* 上段（日本酒）
+        ------------------------------------------------- */
+        &:nth-of-type(1) {
+            @include mq('md') {
+                grid-template-columns: 100%;
+                grid-template-rows: auto;
+            }
+            @include mq('pc') {
+                grid-template-columns: 55% 1fr;
+                grid-template-rows: auto 1fr;
+                margin: 0 50px;                
+            }
+
+            #{$this}-img {
+                grid-area: 1 / 1 / 2 / 2;
+                @include _ratio(86%);
+                @include mq('pc') {
+                    margin-top: -30px;
+                }
+            }
+            
+            .sub-tit {
+                font-family: $ff-tit-h;
+                border-top: 1px solid $color-dark;
+                border-bottom: 1px solid $color-dark;
+                text-align: center;
+                @include mq('md') {
+                    grid-area: 4 / 1 / 5 / 2;
+                    margin-top: $pd-md / 2;
+                    line-height: 1.8;
+                }
+                @include mq('pc') {
+                    grid-area: 2 / 1 / 3 / 3;
+                    margin-top: 10px;              
+                }
+            }
+        
+            #{$this}-wrap {
+                @include mq('md') {
+                    grid-area: 2 / 1 / 3 / 2;
+                }
+                @include mq('pc') {
+                    grid-area: 1 / 2 / 2 / 3;                    
+                    text-align: center;
+
+                    >.sec-tit {
+                        font-family: $ff-tit-h;
+                    }
+
+                    >.price {
+                        margin-top: 30px;
+                    }
+                }
+            }
+
+            #{$this}-txt {
+                margin-top: 10px;
+            }
+
+            #{$this}-def {
+                @include mq('md') {
+                    grid-area: 6 / 1 / 7 / 2;  
+                }
+                @include mq('pc') {
+                    grid-area: 3 / 1 / 4 / 3;
+                }
+
+                @include _fwrap('pc3') {
+                    display: flex;
+                    justify-content: center;
+                    @include mq('md') {
+                        align-items: center;
+                    }
+                }
+            }
+    
+            #{$this}-dtit {
+                writing-mode: vertical-rl;
+                flex: 0 1 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #{$this}-data {
+                padding-left: 7%;
+                border-left: 1px solid $color-dark;
+                @include mq('md') {
+                    flex: 0 1 200px;                  
+                }
+            }
+        }
+
+        /* 下段（焼酎）
+        ------------------------------------------------- */
+        &:nth-of-type(2) {
+            @include mq('md') {
+                grid-template-columns: 70% 30%;
+                grid-template-rows: auto auto auto;
+            }
+            @include mq('pc') {
+                grid-template-columns: auto auto 1fr;
+                grid-template-rows: auto auto;
+                margin-left: 100px;
+                grid-column-gap: 3%;
+            }
+
+            #{$this}-img {
+                @include mq('md') {
+                    grid-area: 1 / 1 / 2 / 2;
+                    max-width: $mw-base-slct;
+                    @include _ratio(120%);
+                }
+                @include mq('pc') {
+                    grid-area: 1 / 3 / 3 / 4;  
+                 
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                img {
+                    box-shadow: $bs-black;
+                }
+            }
+
+            .sub-tit {
+                font-family: $ff-tit-v;
+                writing-mode: vertical-rl;
+                text-indent: 1em;
+                position: relative;
+                @include mq('md') {
+                    grid-area: 1 / 2 / 2 / 3;
+                    justify-self: center;
+                    line-height: 1.6;
+                }
+                @include mq('pc') {
+                    grid-area: 1 / 1 / 3 / 2;
+                }
+
+                &::before {
+                    position: absolute;
+                    bottom: 15%;
+                    right: 0;
+                    width: 1px;
+                    height: 70%;
+                    content: '';
+                    background-color: $color-dark;
+                }
+
+                &::after {
+                    position: absolute;
+                    top: 5%;
+                    left: 0;
+                    width: 1px;
+                    height: 70%;
+                    content: '';
+                    background-color: $color-dark;
+                }
+            }
+        
+            #{$this}-wrap {
+                justify-self: center;
+                @include mq('md') {                    
+                    grid-area: 2 / 1 / 3 / 3;
+                    margin-bottom: 10px;
+                }
+                @include mq('pc') {
+                    grid-area: 1 / 2 / 2 / 3;
+                    writing-mode: vertical-rl;
+
+                    >.sec-tit {
+                        font-family: $ff-tit-v;
+                    }
+                }
+            }
+
+            #{$this}-txt {
+                @include mq('md') {
+                    margin-top: 10px;
+                }
+                @include mq('pc') {
+                    padding: 2em 1em 0 0;
+                    line-height: 2.3;                   
+                }
+            }
+
+            #{$this}-def {
+                justify-self: center;
+                text-align: center;
+                @include mq('md') {
+                    grid-area: 3 / 1 / 4 / 3;
+
+                    > div {
+                        margin-top: $pd-md / 2;
+                        max-width: 100%;
+                        width: 320px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;  
+                    }
+                }
+                @include mq('pc') {
+                    grid-area: 2 / 2 / 3 / 3;
+               
+                    > div {
+                        margin-top: 25px;
+                    }
+                }
+            }
+    
+            #{$this}-dtit {
+                @include mq('md') {
+                    writing-mode: vertical-rl;
+                    flex: 0 1 60px;
+                    display: flex;
+                    align-items: center;
+                    border-right: 1px solid $color-dark;
+                }
+                @include mq('pc') {
+                    padding-bottom: 3px;
+                }
+            }
+
+            #{$this}-data {
+                @include mq('md') {
+                    flex: 0 1 200px;                  
+                    padding-left: 7%;
+                }
+                @include mq('pc') {
+                    padding-top: 10px;
+                    border-top: 1px solid $color-dark;                   
+                }
+            }
+        }
+    }
+}

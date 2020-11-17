@@ -1,0 +1,115 @@
+.ippin {
+    $this: &;
+
+    >.img-tit {
+        @include mq('pc') {
+            background-image: url(../img/menu/ippin_tit_bg.jpg);   
+        }
+    }
+
+    >.inner {
+        @include mq('md') {
+            max-width: 630px;
+            padding: 0;
+        }
+    }
+
+    .sub-tit {
+        @include mq('pc') {
+            font-size: 48px;         
+        }
+    }
+
+    &-wrap {
+        position: relative;
+        @include mq('md') {
+            margin: 20px 15px 0;
+        }
+
+        >.price {
+            @include mq('pc') {
+                margin-top: -5px;           
+            }
+        }
+    }
+
+    &-list {
+        @include mq('md') {
+            margin-top: $pd-md;            
+        }
+        @include mq('pc') {
+            margin-top: $pd-pc * 2;
+            margin-left: 40px;   
+        }
+    }
+
+    &-item {
+        @include mq('pc') {
+            display: flex;
+        }
+        
+        //1番目（鳥わさ）
+        &:nth-of-type(1) {
+            @include mq('pc') {
+                flex-direction: row-reverse;
+                align-items: center;
+                margin-right: $pd-pc;    
+            }
+        
+            #{$this}-img {
+                position: relative;
+                @include mq('md') {
+                    margin: 0 auto;
+                }
+                @include mq('pc') {
+                    flex: 0 0 55%;
+                }
+
+                >._main {
+                    @include _ratio(62.3%);
+                    @include mq('md') {
+                        width: 80%;
+                        margin-left: auto;
+                    }
+                }
+        
+                >._sub {
+                    position: absolute;
+                    @include mq('md') {
+                        bottom: -10%;
+                        left: 10px;
+                        width: 45%;
+                    }
+                    @include mq('pc') {
+                        top: -10px;
+                        left: -30%;
+                        width: 300px;
+                    }
+
+                    img {
+                        transform: rotate( -15deg );
+                    }
+                }
+            }
+
+            #{$this}-wrap {
+                @include mq('pc') {
+                    flex: 0 1 45%;
+                    margin-right: 5%;
+                }
+
+                >.sub-tit {
+                    font-family: $ff-tit-h;
+
+                    small {
+                        letter-spacing: 0.1em;
+                    }
+                }
+            }
+
+            #{$this}-txt {
+                margin-top: 10px;
+            }
+        }
+    }
+}

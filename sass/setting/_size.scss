@@ -1,0 +1,29 @@
+// ブレークポイント
+$breakpoints: (
+	'sm': 'screen and (max-width: 640px)',
+	'la': 'screen and (min-width: 641px)',
+	'md': 'screen and (max-width: 1076px)',
+	'pc': 'screen and (min-width: 1077px)',
+);
+
+// 最大横幅
+$mw-base: 1000px;
+$mw-base-slct: 400px;
+
+// header高さ
+$h-header: 70px;
+
+// 余白
+$pd-md: 40px;
+$pd-pc: 60px;
+
+// z-index の指定
+$layer: (
+	floating: 40,
+	drawer: 30,
+	logo: 20,
+	nav: 10,
+	default: 1,
+	bg: -10,
+	fullbg: -20,
+);

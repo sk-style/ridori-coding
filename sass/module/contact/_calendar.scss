@@ -1,0 +1,11 @@
+.calendar {
+    text-align: center;
+
+    &-box {
+        color: $color-txt;
+        background-color: $color-white;
+        height: 500px;
+        text-align: center;
+        margin: 30px auto 0;
+    }
+}

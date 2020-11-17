@@ -1,0 +1,41 @@
+//　ベース色
+$color-main: #9f353a;
+$color-main-tra: rgba(159, 53, 58, 0.4);
+$color-main-hover: rgba(159, 53, 58, 0.1);
+
+// テキスト色
+$color-txt: #191919;
+$color-txt-tra-s: rgba(25, 25, 25, 0.3);
+$color-txt-tra: rgba(25, 25, 25, 0.6);
+$color-txt-tra-l: rgba(25, 25, 25, 0.9);
+
+// 白色
+$color-white: #FFF;
+$color-white-tra-s: rgba(255, 255, 255, 0.3);
+$color-white-tra: rgba(255, 255, 255, 0.6);
+$color-white-tra-l: rgba(255, 255, 255, 0.9);
+
+//　アクセント色
+$color-ac: #C3B978;
+$color-ac-light: #E6D8B3;
+
+// ライン色
+$color-dark: #333;
+$color-dark-tra: rgba(51, 51, 51, 0.4);
+
+//　緑色
+$color-green: #4d5139;
+
+// テキストシャドウ
+$ts-black-s: 0px 0px 6px rgba(0, 0, 0, 0.7);
+$ts-black: 0px 0px 14px rgba(0, 0, 0, 0.7);
+$ts-black-l: 0px 0px 25px rgba(0, 0, 0, 0.9);
+$ts-white-s: 0px 0px 6px rgba(255, 255, 255, 0.7);
+$ts-white: 0px 0px 14px rgba(255, 255, 255, 0.7);
+$ts-white-l: 0px 0px 25px rgba(255, 255, 255, 0.3);
+$ts-red: 0px 0px 10px rgba(159, 53, 58, 0.8);
+
+// ボックスシャドウ
+$bs-black: 0 5px 12px rgba(62, 62, 62, 0.2);
+$bs-black-l: 26px 26px 80px 0 rgba(62, 62, 62, 0.2);
+$bs-white: 0 5px 12px rgba(255, 255, 255, 0.2);

@@ -1,0 +1,279 @@
+body {
+    font-family: $ff-base;
+    font-size: $fz-base;
+    font-weight: $fw-base;
+    line-height: $lh-base;
+    letter-spacing: .2em;
+    color: $color-txt;
+    background-color: $color-txt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+    text-align: justify;
+
+    > main::before {
+        position: fixed;
+        top:0;
+        left:0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        content: '';
+        background: url(../img/bg_base.png) repeat;
+        z-index: map-get($layer, 'fullbg');
+    }
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border: none;
+}
+
+a {
+    display: inline-block;
+    color: $color-txt;
+}
+
+.inner {
+    margin: 0 auto;
+    height: inherit;
+    box-sizing: content-box;
+    @include mq('md') {
+        padding: 0 15px;
+        max-width: 600px;
+    }
+    @include mq('pc') {
+        padding: 0 20px;
+        max-width: $mw-base;
+    }
+}
+
+.sec-tit {
+    line-height: 1.1;
+    @include mq('md') {
+        font-size: 40px;    
+        letter-spacing: .03em;
+    }
+    @include mq('pc') {
+        font-size: 65px;
+        letter-spacing: .05em;    
+    }
+
+    span {
+        font-size: 1.3em;
+        color: $color-main;
+    }
+
+    small {
+        display: block;
+        font-size: .75em;
+    }
+}
+
+.sub-tit {
+    font-weight: normal;
+    @include mq('md') {
+        font-size: 30px;   
+        line-height: 1.3;
+        letter-spacing: .04em;
+    }
+    @include mq('pc') {
+        font-size: 50px;
+        line-height: 1.57;
+        letter-spacing: .05em;
+    }
+
+    span {
+        font-size: 1.3em;
+        color: $color-main;
+    }
+    
+    small {
+        display: block;
+        font-size: .75em;
+        letter-spacing: .3em;
+    }
+}
+
+.base-tit {
+    text-align: center;
+    @include mq('pc') {
+        font-size: 42px;
+    }
+}
+
+.big-tit {
+    font-family: $ff-tit-h;
+    color: $color-white;
+    text-shadow: $ts-black;
+    position: relative;
+    z-index: map-get($layer, 'default');
+    @include mq('md') {
+        font-size: 60px;
+        height: 120px;
+        line-height: 100px;
+        text-align: center;
+    }
+    @include mq('pc') {
+        font-size: 140px;
+        height: 240px;
+        line-height: 200px;
+        padding-left: 0.5em;
+    }
+
+    &:before {
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100vw;
+        height: 100%;
+        content: '';
+        background: url(../img/bg_red.png) repeat;
+        transform: skewY(-4deg);           
+        transform-origin: bottom left;
+        margin: 0 calc(50% - 50vw);
+        box-shadow: $bs-black;
+        z-index: map-get($layer, 'bg');
+    }
+}
+
+.img-tit {
+    $this: &;
+    @include mq('pc') {
+        background-position: top center;
+        background-size: cover;
+        background-attachment: fixed;
+        min-height: 550px;
+        position: relative;
+
+        &._r {
+            > h2 {
+                right: 5%;
+            }
+        }
+
+        &._l {
+            > h2 {
+                left: 5%;
+            }
+        }
+
+        &::after {
+            position: absolute;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            content: '';
+        }     
+    }
+
+    > h2 {
+        writing-mode: vertical-rl;
+        font-size: 55px;
+        font-family: $ff-tit-v;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-white;
+        z-index: map-get($layer, 'default');
+        @include mq('md') {
+            padding-top: 30px;
+            margin: 0 auto;
+            text-shadow: $ts-red;
+        }
+        @include mq('pc') {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 120px;          
+            min-height: 550px;
+            text-shadow: $ts-black; 
+        }
+
+        &::before {
+            content: '';
+            background-color: $color-main-tra;
+            width: 150px;
+            height: 2px;
+            transform: rotate(-40deg);
+            display: inline-block;
+            margin: .4em .4em .3em 0;
+            @include mq('pc') {
+                width: 250px;
+                height: 1px;
+                background-color: $color-white;
+                box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+}
+
+.line-tit {
+    font-family: $ff-tit-h;
+    letter-spacing: .05em;
+    line-height: 1.1;
+    @include mq('md') {
+        font-size: 38px;
+        letter-spacing: .03em;
+        text-align: center;
+        position: relative;
+        
+        &::before {
+            position: absolute;
+            top: - 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100px;
+            content: '';
+            background-color: $color-main-tra;
+        }           
+    }
+    @include mq('pc') {
+        font-size: 65px;
+        letter-spacing: .05em;    
+    }
+
+    > small {
+        display: block;
+        font-size: .7em;
+    }
+
+    > span {
+        color: $color-main;
+        font-size: 1.3em;
+    }
+}
+
+.price {
+    font-size: 20px;
+    text-orientation: upright;
+    @include mq('pc') {
+        font-size: 25px;
+    }
+    letter-spacing: .15em;
+    small {
+        font-size: .5em;
+    }
+}
+
+
+// 表示切替
+._sm {
+    @include mq('la') {
+        display: none;
+    }
+}
+
+._md {
+    @include mq('pc') {
+        display: none;
+    }
+}
+._pc {
+    @include mq('md') {
+        display: none;
+    }
+}

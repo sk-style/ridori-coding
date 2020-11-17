@@ -1,0 +1,45 @@
+.snav {
+    @include mq('pc') {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 160px;
+        z-index: map-get($layer, 'nav');
+
+        .nav-item {
+            a {
+                font-size: 13px;
+            }
+
+            &._btn {
+                margin-top: 10px;
+                position: relative;
+                @include _btn('more', $color-main);
+            }
+        }
+
+        &._change {
+            .nav-tit {
+                text-shadow: $ts-white-l;
+            }
+
+            .nav-item {
+                a {
+                    color: $color-white;
+                    text-shadow: $ts-black-s;
+                }
+
+                &._btn a {
+                    &:before,
+                    &:after {
+                        box-shadow: 0 1px 3px $color-white-tra-s;
+                    }
+                }
+            }
+        }
+    }
+}

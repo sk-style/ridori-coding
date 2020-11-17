@@ -1,0 +1,177 @@
+.header {
+    $this: &;
+    position: relative;
+    color: $color-white;
+    
+    &-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: url('../img/bg_red.png') repeat;
+    }
+
+    >.dnav-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: $color-txt;
+        padding: 20px;
+    }
+    
+    // topページ
+    &._top {
+        background-color: $color-txt;
+
+        #{$this}-img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        @include mq('md') {
+            height: calc( var(--vh) * 100 );          
+            padding: 60px 0 70px;
+            
+            #{$this}-bg {
+                width: 50%;
+                height: 70%;
+            }
+        }
+        
+        @include mq('pc') {
+            height: 100vh;
+            padding: 3% 3.5% 4% 27%;
+
+            #{$this}-bg {
+                width: 65%;
+                height: 80%;
+            }    
+        }
+    }
+
+    &-tit {
+        position: absolute;
+        top: 6%;
+        width: 16.2%;
+        min-width: 120px;
+        font-family: $ff-tit-v;
+        writing-mode: vertical-rl;
+        line-height: 1.3;
+        text-shadow: $ts-black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        background: url(../img/circle_red.png) center bottom 20% / contain no-repeat;
+        z-index: map-get($layer, 'logo');
+        
+        @include mq('md') {
+            left: 2.7%;
+        }
+        @include mq('pc') {
+            left: 5.4%;
+            height: 34%;
+        }
+
+        > span:first-child {
+            color: $color-ac;
+            font-size: 14px;
+            letter-spacing: .1em;
+            @include mq('md') {
+                text-indent: -17em;
+            }
+            @include mq('pc') {
+                text-indent: -18em;
+            }
+        }
+
+        > span:nth-of-type(2) {
+            font-size: 50px;
+            @include mq('md') {
+                letter-spacing: 0;                
+            }
+            @include mq('pc') {
+                letter-spacing: .1em;               
+            }
+
+            > small {
+                font-size: 22px;
+                margin-bottom: .3em;
+                @include mq('pc') {
+                    letter-spacing: 0;
+                }
+            }
+        } 
+    }
+
+    &-slide {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 3px 3px 15px rgba(255, 255, 255, 0.16);
+        opacity: 0;
+        animation: headerAnime 15s infinite;
+        z-index: map-get($layer, 'default');
+
+        &._1 {
+            @include mq('sm') {
+                background-image: url('../img/module/header_slide0_sm.jpg');
+            }
+            @include mq('la') {
+                background-image: url('../img/module/header_slide0_la.jpg');
+            }
+        }
+
+        &._2 {
+            @include mq('sm') {
+                background-image: url('../img/module/header_slide1_sm.jpg');
+            }
+            @include mq('la') {
+                background-image: url('../img/module/header_slide1_la.jpg');
+            }
+            animation-delay: 5s;
+        }
+
+        &._3 {
+            @include mq('sm') {
+                background-image: url('../img/module/header_slide2_sm.jpg');   
+            }
+            @include mq('la') {
+                background-image: url('../img/module/header_slide2_la.jpg');
+            }
+            animation-delay: 10s;
+        }
+    }
+
+// menuページ
+    &._menu {
+        @include mq('md') {
+            padding-top: 6%;
+        }
+
+        #{$this}-img {
+            @include _ratio(41.41%);
+            z-index: map-get($layer, 'default');
+            @include mq('pc') {
+                margin-left: 160px;
+                margin-right: 160px;              
+            }
+        }
+
+        #{$this}-bg {
+            height: 77%;
+            @include mq('md') {
+                width: 70%;
+            }
+            @include mq('pc') {
+                width: 40%;
+            }
+        }
+    }
+}

@@ -1,0 +1,266 @@
+.contact {
+    @include mq('md') {
+        padding-top: $pd-md;
+    }
+    @include mq('pc') {
+        padding-top: $pd-pc;
+    }
+
+    >.inner {
+        position: relative;
+        @include mq('md') {
+            max-width: 540px; 
+        }
+        @include mq('pc') {
+            max-width: 940px;           
+        }
+    }
+
+    .base-tit {
+        letter-spacing: .1em;
+        @include mq('md') {
+            font-size: 26px;
+            line-height: 1.3;
+            border-bottom: 3px solid $color-main;
+            padding: 0 0 20px;
+            margin-bottom: 30px;           
+        }
+        @include mq('pc') {
+            height: 70px;
+            line-height: 70px;
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            &::before,
+            &::after {
+                border-top: 3px solid $color-main;
+                content: '';
+                flex-grow: 1;
+            }
+
+            &::before {
+                margin-right: .8em;
+            }
+
+            &::after {
+                margin-left: .8em;
+            }             
+        }
+    }
+
+    &-lead {
+        @include mq('md') {
+            font-size: 14px;         
+        }
+        @include mq('pc') {
+            position: absolute;
+            bottom: 100px;
+            right: 60px;
+            font-size: 15px;
+        }
+
+        span {
+            display: inline-block;
+            padding: .2em 1em .2em .5em;
+            @include mq('pc') {
+                border-left: 4px solid $color-ac;               
+            }
+        }
+
+        p + p {
+            @include mq('pc') {
+                margin-top: 20px;
+            }
+        } 
+    }
+
+    &-wrap {
+        position: relative;
+        @include mq('pc') {
+            display: flex;
+            flex-direction: row-reverse;       
+            padding: 40px 0;
+            border-bottom: 3px solid $color-main;
+
+            &::before,
+            &::after {
+                position: absolute;
+                top: -35px;
+                width: 3px;
+                height: calc(100% + 35px);
+                content: '';
+                background-color: $color-main;
+            }
+    
+            &::before {
+                right: 0;
+            }
+
+            &::after {
+                left: 0;
+            }
+        } 
+    }
+    
+    &-list_tab {
+        text-align: center;
+        @include mq('md') {
+            margin-top: 20px;           
+        }
+        @include mq('pc') {
+            flex: 0 0 250px;
+        }
+        
+        li {
+            background-color: $color-white-tra;
+            margin: 0 auto 5px;
+            cursor: pointer;
+            transition: all .4s;
+            position: relative;
+            @include mq('md') {
+                width: 320px;
+                max-width: 100%;
+                padding-top: .5em;
+                padding-bottom: .5em;
+                padding-left: 2em;               
+            }
+            @include mq('pc') {
+                width: 100%;
+                background-color: transparent;
+                padding-top: .8em;
+                padding-bottom: .8em;
+                padding-left: 1em;
+            }
+
+            &:after {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                content: '';
+                border: solid;
+                transition: opacity .3s;
+                @include mq('md') {
+                    left: 1em;
+                    border-color: $color-ac transparent transparent;
+                    border-width: 7px 5px;
+                }
+                @include mq('pc') {
+                    left: -7px;
+                    border-color: transparent $color-ac transparent transparent;
+                    border-width: 5px 7px;
+                }
+            }
+
+            &:hover,
+            &._active {
+                @include mq('pc') {
+                    padding-left: .5em;
+                    padding-right: .5em;                                 
+                }
+
+                &::after {
+                    opacity: 0;
+                    @include mq('md') {
+                        bottom: 0;                    
+                    }
+                    @include mq('pc') {
+                        left: 0;
+                    }
+                }
+            }
+
+            &._active {
+                color: $color-main;
+                background-color: $color-main-hover;               
+            }
+        }
+    }
+
+
+    &-list_body {
+        flex: 0 1 100%;
+        
+        > li {
+            display: none;
+            
+            &._active {
+                display: block;
+                animation: active .4s;
+            }
+            
+            > * {
+                min-height: 605px;
+                @include mq('md') {          
+                    margin-top: $pd-md;
+                }
+                @include mq('pc') {
+                    padding: 15px 5% 0;
+                }
+
+                ._lead {
+                    font-size: 15px;
+                    text-align: center;
+                    display: inline-block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    min-width: 63px;
+                }
+
+                &:not(.calendar) ._lead {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+
+    &-txt {
+        text-align: center;
+        line-height: 2;
+        @include mq('md') {
+            margin-bottom: 50px;          
+        }
+        @include mq('pc') {
+            margin-bottom: 80px;
+        }
+
+        > small {
+            display: block;
+            font-size: 13px;
+            margin-top: 20px;
+            @include mq('md') {
+                text-align: right;
+            }
+        }
+    }
+
+    &-notice {
+        font-size: 15px;
+        font-weight: normal;
+        letter-spacing: 0.15em;
+        position: relative;
+        @include mq('md') {
+            margin-right: 13px;
+            margin-left: 25px; 
+        }
+        @include mq('pc') {
+            margin-right: 40px;
+            margin-left: 50px;
+        }
+
+        &:before {
+            position: absolute;
+            top: 0;
+            left: -15px;
+            content: '';
+            background-color: #C3B978;
+            height: 100%;
+            width: 4px;
+        }
+
+        & + & {
+            margin-top: 1.5em;
+        }
+    }
+}

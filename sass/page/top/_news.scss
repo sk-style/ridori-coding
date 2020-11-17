@@ -1,0 +1,168 @@
+.news {
+    @include mq('md') {
+        margin: $pd-md 0;
+        padding: $pd-md 0 $pd-md* 2; 
+    }
+    @include mq('pc') {
+        padding: $pd-pc* 2 0 $pd-pc* 3;
+    }
+
+    >.inner {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '';
+            background: url(../img/circle1.png) no-repeat;
+            background-size: contain;
+            @include mq('md') {
+                top: - $pd-md * 2;
+                left: -80px;
+                width: 250px;
+                height: 250px;
+            }
+            @include mq('pc') {
+                top: - $pd-pc * 2;
+                left: -150px;
+                width: 400px;
+                height: 400px;
+            }
+        }
+    }
+    
+    &-box {
+        background-color: $color-white-tra;
+        box-shadow: $bs-black;
+        @include mq('md') {
+            padding: $pd-md 0;                     
+        }
+        @include mq('pc') {
+            padding: $pd-pc 50px;           
+        }
+    }
+
+    .base-tit {
+        letter-spacing: .2em;
+        @include mq('md') {
+            font-size: 30px;
+        }
+    }
+    
+    &-def {
+        @include mq('md') {
+            margin-top: 20px;
+            line-height: 1.4;          
+        }
+        @include mq('pc') {
+            margin-top: 30px;
+            line-height: 1.6;
+            padding: 0 36px;
+        }
+
+        > div {
+            border-bottom: 1px solid $color-dark-tra;
+
+            &:first-child {
+                border-top: 1px solid $color-dark-tra;  
+            }
+        }
+    }
+    
+    &-dtit {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color .2s;
+        position: relative;
+        @include mq('md') {    
+            flex-wrap: wrap;
+            padding: 10px 46px 10px 15px;
+            letter-spacing: 0.15em;
+        }
+        @include mq('pc') {
+            padding: 25px 60px 25px 10px;
+            letter-spacing: 0.25em;
+        }
+    
+        &::before,
+        &::after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            content: '';
+            background: $color-ac;
+            width: 15px;
+            height: 3px;
+            transition: transform .3s;
+            @include mq('md') {
+                right: 18px;
+            }
+            @include mq('pc') {
+                right: 25px;
+            }
+        }
+    
+        &::after {
+            transform: translateY(-50%) rotate(90deg);
+        }
+    
+        &._open {
+            &::after {
+                transform: translateY(-50%) rotate(0);
+            }
+        }
+
+        &:hover,
+        &._open {
+            background-color: $color-main-hover;
+        }
+
+        > time {
+            white-space: nowrap;
+            @include mq('md') {
+                flex: 0 0 105px;
+                margin-right: 15px;
+            }
+            @include mq('pc') {
+                flex: 0 0 125px;
+                margin-right: 30px;
+            }
+        }
+    }
+
+    &-label {
+        white-space: nowrap;
+        background: $color-white;
+        border: solid 2px $color-main;
+        border-radius: 30px;
+        font-size: 14px;
+        @include mq('md') {          
+            padding: 0 18px;
+        }
+        @include mq('pc') {
+            padding: 0 32px;
+        }
+    }
+
+    &-txt {
+        @include mq('md') {
+            flex: 0 0 100%;
+            margin-top: 10px;
+        }
+        @include mq('pc') {
+            margin-left: 50px;
+            flex: 0 1 100%;
+        }
+    }
+    
+    &-data {
+        display: none;
+        @include mq('md') {
+            padding: 16px;
+            font-weight: normal;     
+        }
+        @include mq('pc') {
+            padding: 20px 10px;           
+        }
+    }
+}

@@ -1,0 +1,147 @@
+.catlg {
+    margin-top: $pd-md * 2;
+    @include mq('pc') {
+        margin-top: $pd-pc * 2;
+    }
+
+    &-def {
+        padding: 0 20px;
+    }
+
+    &-dtit {
+        cursor: pointer;
+        width: 600px;
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        color: $color-white;
+        background-color: $color-txt;
+        border: 1px solid $color-txt;
+        padding: .8em 2em;
+        transition: color .4s, background-color .4s;
+        position: relative;
+        font-size: 18px;
+        @include mq('pc') {
+            font-size: 20px;
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            bottom: 40%;
+            content: '';
+            border-bottom: 2px solid $color-white;
+            border-right: 2px solid $color-white;
+            transform: rotate(45deg);
+            width: 6px;
+            height: 6px;
+            transition: transform .5s, border-color .4s;
+        }
+
+        &::before {
+            left: 5%;
+        }
+
+        &::after {
+            right: 5%;
+        }
+
+        &:hover {
+            color: $color-txt;
+            background-color: transparent;
+
+            &:before,
+            &::after {
+                border-color: $color-txt;
+            }
+        }
+
+        &._open {
+            &:before,
+            &::after {
+                transform: rotate(225deg);
+            }
+        }
+    }
+
+    &-data {
+        display: none;
+        font-size: 15px;
+    }
+
+    &-lead {
+        font-size: .7em;
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    &-wrap {
+        @include _fwrap('pc2') {
+            > dt {
+                font-size: 1.2em;
+                text-align: center;
+                border-bottom: 3px double $color-dark;
+            }
+
+            > dd {
+                margin-top: 13px;
+
+                > dl {
+                    display: flex;
+                    padding: 5px;
+
+                    > dt {
+                        flex-grow: 1;
+                    }
+
+                    > dd {
+                        flex: 0 0 70px;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        >._notfwrap {
+            @include mq('pc') {
+                flex: 0 0 100%;
+                margin-top: $pd-md;       
+            }
+
+            > dt {
+                font-size: 1.2em;
+                text-align: center;
+                border-bottom: 3px double $color-dark;    
+            }
+
+            > dd {
+                @include _fwrap('pc3') {
+                    > dt {
+                        font-size: 1.2em;
+                        
+                        text-align: center;
+                        border-bottom: 1px solid $color-dark;
+                    }
+
+                    > dd {
+                        margin-top: 13px;
+
+                        > dl {
+                            display: flex;
+                            padding: 5px;
+
+                            > dt {
+                                flex-grow: 1;
+                            }
+
+                            > dd {
+                                flex: 0 0 70px;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

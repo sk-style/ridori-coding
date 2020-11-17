@@ -1,0 +1,65 @@
+.lead {
+    @include mq('md') {
+        margin: 35px 0 $pd-md * 2;    
+    }
+    @include mq('pc') {
+        margin: 80px 0 $pd-pc * 2;      
+    }
+
+    >.inner {
+        text-align: center;
+    }
+    
+    .sec-tit {
+        line-height: 1;
+        font-family: $ff-tit-h;
+    }
+
+    &-tit {
+        letter-spacing: .025em;
+        margin-top: 30px;
+        font-size: 18px;
+        color: $color-main;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include mq('pc') {
+            margin-top: 40px;
+            font-size: 28px;
+        }
+
+        &::before,
+        &::after {
+            border-top: 1px solid $color-main;
+            content: '';
+            @include mq('md') {
+                width: 20px;
+            }
+            @include mq('pc') {
+                width: 40px;
+            }
+        }
+    
+        &::before {
+            margin-right: .5em;
+        }
+    
+        &::after {
+            margin-left: .5em;
+        } 
+    }
+    
+    &-txt {
+        @include mq('md') {
+            margin-top: 15px;
+            font-weight: normal;
+            line-height: 1.45;
+            font-size: 14px;
+            letter-spacing: .1em;     
+        }
+        @include mq('pc') {
+            margin-top: 30px;
+            line-height: 2;  
+        }
+    }
+}

@@ -1,0 +1,57 @@
+input,
+textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -internal-autofill-selected: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    border-bottom: 2px solid rgba(195, 185, 120, .5);
+    border-radius: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    padding: 0.4em 0.6em;
+    width: 100%;
+    transition: border-bottom-color .4s;
+
+    &:focus {
+        border-bottom-color: $color-main-tra;
+    }
+}
+
+textarea {
+    height: 240px;
+    resize: vertical
+}
+
+select {
+    padding: 0.4em 30px 0.4em 0.6em;
+    border: 2px solid rgba(195, 185, 120, .5);
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: $color-white-tra-s url(../img/icon_arr.svg) no-repeat center right 8px/16px 13px;
+    border-radius: 0;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: inherit;
+    @include mq('md') {
+        width: 100%;    
+    }
+    @include mq('pc') {
+        width: 80%;
+    }
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    &:focus {
+        box-shadow: none;
+        border-color: $color-main-tra;
+    }
+}

@@ -1,0 +1,10 @@
+.concept {
+    margin-top: $pd-pc;
+    padding-top: $pd-pc;
+
+    >.line-tit {
+        @include mq('pc') {
+            text-align: center;
+        }
+    }   
+}

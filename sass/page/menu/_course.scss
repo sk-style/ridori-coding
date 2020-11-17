@@ -1,0 +1,274 @@
+.course {
+    $this: &;
+    overflow: hidden;
+
+    @include mq('pc') {
+        .big-tit {
+            position: relative;
+            &::after {
+                position: absolute;
+                top: 100px;
+                right: -60px;
+                content: '';
+                background: url(../img/circle1.png) center / contain no-repeat;
+                width: 350px;
+                height: 350px;
+                z-index: map-get($layer, 'bg') - 1;
+            }
+        }
+    }
+
+    &-wrap {
+        display: grid;
+        @include mq('md') {
+            margin: $pd-md 0 0;
+            grid-template-columns: 70% 30%;
+            grid-template-rows: auto;
+        }
+        @include mq('pc') {
+            margin: $pd-pc 0 0;      
+            grid-template-columns: 60% 10% auto;
+            grid-template-rows: auto 1fr;
+        }
+
+        > #{$this}-box {
+            @include mq('md') {
+                grid-area: 3 / 1 / 4 / 3;
+            }
+            @include mq('pc') {
+                grid-area: 2 / 1 / 5 / 2;
+                margin: 50px 55px 10px 45px; 
+            }
+        }
+
+        #js-course-head {
+            @include mq('md') {
+                cursor: pointer;
+                pointer-events: all;
+                position: relative;
+
+                &::before,
+                &::after {
+                    position: absolute;
+                    top: 30%;
+                    content: '';
+                    border-bottom: 2px solid;
+                    border-right: 2px solid;
+                    transform: rotate(45deg);
+                    width: 8px;
+                    height: 8px;
+                    transition: transform .5s, border-color .4s;
+                }
+        
+                &::before {
+                    left: -5px;
+                }
+        
+                &::after {
+                    right: -5px;
+                }
+        
+                &:hover {
+                    &:before,
+                    &::after {
+                        border-color: $color-main;
+                    }
+                }
+        
+                &._open {
+                    &:before,
+                    &::after {
+                        transform: rotate(225deg);
+                    }
+                }    
+            }
+        }
+    }
+
+    &-lead {
+        @include mq('md') {
+            grid-area: 1 / 1 / 2 / 3;
+        }
+        @include mq('pc') {
+            grid-area: 2 / 2 / 3 / 4;
+            align-self: center;
+            margin: $pd-md $pd-md 0 0;
+            line-height: 1.9;            
+        }
+    }
+
+    .sub-tit {
+        font-family: $ff-tit-v;
+        writing-mode: vertical-rl;
+        justify-self: center;
+        line-height: 1.2;
+        position: relative;
+        z-index: map-get($layer, 'default');
+        @include mq('md') {
+            align-self: center;
+            grid-area: 2 / 2 / 3 / 3;
+            font-size: 20px;
+        }
+        @include mq('pc') {
+            align-self: flex-end;
+            text-indent: -2em;
+            grid-area: 1 / 3 / 2 / 4;
+            margin-right: 100px;
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+            background: url(../img/circle2.png) center / contain no-repeat;
+            z-index: map-get($layer, 'bg');
+            @include mq('md') {
+                bottom: 35px;  
+                left: -50px;
+                width: 100px;
+                height: 100px;
+            }
+            @include mq('pc') {
+                bottom: 60px;
+                left: -100px;
+                width: 250px;
+                height: 250px;
+            }
+        }
+    }
+
+    &-img {
+        &._main {
+            align-self: center;
+            @include mq('md') {
+                grid-area: 2 / 1 / 3 / 2;
+                margin-top: $pd-md / 2;
+            }
+            @include mq('pc') {
+                grid-area: 1 / 1 / 2 / 3;
+                margin-right: 6%;
+                @include _ratio(72.6%);                
+            }
+        }
+
+        &._sub {
+            @include mq('pc') {
+                grid-area: 4 / 2 / 5 / 4;
+                margin-top: 60px;
+                background: url(../img/menu/course_img_sub.jpg) center center /cover;
+                padding-top: 70.5%;
+            }
+        }
+    }
+
+    &-box {
+        text-align: center;
+        background-color: $color-white-tra;
+        position: relative;   
+        outline: 1px solid $color-dark;
+        outline-offset: 8px;
+        @include mq('md') {
+            margin: 25px 10px 10px;
+            padding: 18px;
+        }
+        @include mq('pc') {
+            margin: 0;
+            padding: 25px $pd-pc / 2;
+        }
+    }
+
+    &-head {
+        pointer-events: none;
+
+        span {
+            display: block;
+            @include mq('md') {
+                font-size: 18px;               
+            }
+            @include mq('pc') {
+                font-size: 20px;
+            }
+        }
+
+        h4 {
+            font-size: 20px;
+            display: inline-block;
+            color: $color-main;
+            @include mq('md') {
+                padding: 0 .5em 0 0;
+            }
+            @include mq('pc') {
+                font-size: 30px;             
+                padding: 10px .7em 0 0;
+            }
+        }
+
+        >.price {
+            display: inline-block;
+            color: $color-main;       
+        }
+    }
+
+    &-def {
+        @include _fwrap('pc2');
+        @include mq('md') {      
+            > div {
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+        @include mq('pc') {
+            > div {
+                &:nth-of-type(4) {
+                    margin-right: $pd-md;
+                }
+                &:nth-of-type(5) {
+                    margin-right: 0 !important;
+                }
+
+                &._notfwrap {
+                    flex: 0 0 100%;
+                    margin-top: $pd-md;
+
+                    > dd {
+                        @include _fwrap('pc2', 5px);
+                    } 
+                }
+            }
+        }
+    }
+
+    #js-course-def {
+        @include mq('md') {
+            display: none;
+        }
+    }
+
+    &-dtit {
+        font-size: 1.1em;
+        text-align: center;
+        padding-bottom: 3px;
+        border-bottom: 1px solid $color-dark-tra;
+    }
+
+    &-data {
+        padding-top: 5px;
+    }
+
+    &-btn {
+        @include mq('md') {
+            grid-area: 4 / 1 / 5 / 3;
+            margin-top: $pd-md;
+            text-align: center;
+        }
+        @include mq('pc') {
+            grid-area: 3 / 2 / 4 / 4;           
+            margin-top: 20px;
+        }
+
+        @include _btn() {
+            @include mq('md') {
+                width: 400px;
+            }
+        }
+    }
+}

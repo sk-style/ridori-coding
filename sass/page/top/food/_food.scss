@@ -1,0 +1,76 @@
+.food {
+    margin-top: $pd-pc;
+    padding-top: $pd-pc;
+
+    &-btn {
+        text-align: center;
+        @include mq('md') {
+            margin-top: $pd-md;
+        }
+        @include mq('pc') {
+            margin-top: $pd-pc;
+        }
+
+        @include _btn('red') {
+            @include mq('md') {
+                width: 100%;               
+            }
+            @include mq('pc') {
+                width: 500px;
+            }
+
+            > i {
+                margin-right: .5em;
+            }
+        }
+    }
+
+    &-img {
+        margin-top: $pd-md * 2;
+        overflow: hidden;
+        width: 100vw;
+        margin: 0 calc(50% - 50vw);
+        @include mq('md') {
+            height: 270px; 
+        }
+        @include mq('pc') {
+            margin-top: $pd-pc * 2;
+            height: 360px;
+        }
+    }
+
+    //simplyScroll
+    .simply-scroll {
+        &-container {
+            position: relative;
+        }
+
+        &-clip {
+            position: relative;
+            overflow: hidden;
+        }
+
+        &-list {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+
+            > li {
+                float: left;
+                margin-left: 3px;
+
+                > img {
+                    object-fit: cover;
+                    @include mq('md') {
+                        width: 360px;
+                        height: 270px;                     
+                    }
+                    @include mq('pc') {
+                        width: 540px;
+                        height: 360px;
+                    }    
+                }
+            }
+        }
+    }
+}
